@@ -12,3 +12,18 @@ services:
         - "5432:5432"
     volumes:
       - postgres_catalog:/var/lib/postgresql/data/     
+
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=catalogdb;Port=5432;Database=CatalogDb;User Id=postgres;Password=postgres;Include Error Detail=true
+    depends_on:
+      - catalogdb
+    ports:
+      - "6000:8080"
+      - "6060:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
