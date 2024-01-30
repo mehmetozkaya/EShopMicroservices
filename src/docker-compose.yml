@@ -4,6 +4,9 @@ services:
   catalogdb:
     image: postgres
 
+  basketdb:
+    image: postgres
+
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
@@ -12,4 +15,5 @@ services:
 
 volumes:
   postgres_catalog:
+  postgres_basket:
 
