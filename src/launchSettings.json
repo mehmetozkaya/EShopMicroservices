@@ -6,7 +6,8 @@
       "serviceActions": {
         "catalog.api": "StartDebugging",
         "basket.api": "StartDebugging",
-        "discount.grpc": "StartDebugging"
+        "discount.grpc": "StartDebugging",
+        "ordering.api": "StartDebugging"
       }
     }
   }
